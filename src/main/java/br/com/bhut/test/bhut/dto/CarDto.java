@@ -12,11 +12,11 @@ import javax.validation.constraints.Size;
 public class CarDto {
 
     @NotBlank
-    @Size(min = 2)
+    @Size(min = 2, message = "É necessário no minimo 2 caracteres")
     private String title;
 
     @NotBlank
-    @Size(min = 2)
+    @Size(min = 2, message = "É necessário no minimo 2 caracteres")
     private String brand;
 
     @NotBlank
