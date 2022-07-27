@@ -12,9 +12,9 @@ public class ListCarsService {
         ClientHttp clientHttp = new ClientHttp();
         String data = clientHttp.searchData("http://api-test.bhut.com.br:3000/api/cars");
         JsonParser parser = new JsonParser();
-        JSONArray carsInJson = parser.parse(data);
+        JSONArray cars = parser.parseArray(data);
 
-        return carsInJson;
+        return cars;
     }
 
 }
