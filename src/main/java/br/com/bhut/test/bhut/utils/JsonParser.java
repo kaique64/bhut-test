@@ -13,4 +13,10 @@ public class JsonParser {
         return array;
     }
 
+    public JSONObject parseObject(String json) {
+        JSONObject body = new JSONObject(json);
+
+        return body;
+    }
+
 }
