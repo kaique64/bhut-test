@@ -87,6 +87,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>bhut-api</finalName>
 	</build>
 
 </project>
