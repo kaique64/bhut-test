@@ -12,7 +12,7 @@ public class ClientHttp {
      * Function responsible to make the HTTP request
      * @param url the url from the service
      */
-    private HttpResponse<String> makeRequest(String url) {
+    private HttpResponse<String> get(String url) {
         try {
             URI address = URI.create(url);
             HttpClient client = HttpClient.newHttpClient();
@@ -30,7 +30,7 @@ public class ClientHttp {
      * @param url the url from the service
      */
     public String searchData(String url) {
-        HttpResponse<String> response = makeRequest(url);
+        HttpResponse<String> response = get(url);
 
         String body = response.body();
         return body;
