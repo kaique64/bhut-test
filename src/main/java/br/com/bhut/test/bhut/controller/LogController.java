@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/logs")
-public class ListLogsController {
+public class LogController {
 
     @Autowired
     private ListLogsService service;
