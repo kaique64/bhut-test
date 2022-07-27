@@ -5,12 +5,12 @@ import org.json.JSONObject;
 
 public class JsonParser {
 
-    public JSONArray parse(String json) {
-        String jsonData = "{\"cars\":" + json + "}";
+    public JSONArray parseArray(String json) {
+        String jsonData = "{\"array\":" + json + "}";
         JSONObject jsonObject = new JSONObject(jsonData);
-        JSONArray cars = jsonObject.getJSONArray("cars");
+        JSONArray array = jsonObject.getJSONArray("array");
 
-        return cars;
+        return array;
     }
 
 }
