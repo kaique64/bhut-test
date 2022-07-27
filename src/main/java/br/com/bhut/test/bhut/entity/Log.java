@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,6 +22,6 @@ public class Log {
 
     private String car_id;
 
-    private LocalDate data_hora;
+    private LocalDateTime data_hora;
 
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class CreateCarService {
@@ -44,7 +45,7 @@ public class CreateCarService {
         // Save log
         Log log = new Log();
         log.setCar_id(car.get("_id").toString());
-        log.setData_hora(LocalDate.now());
+        log.setData_hora(LocalDateTime.now());
 
         logRepository.save(log);
 
