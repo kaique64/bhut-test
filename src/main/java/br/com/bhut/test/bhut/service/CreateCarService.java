@@ -2,17 +2,18 @@ package br.com.bhut.test.bhut.service;
 
 import br.com.bhut.test.bhut.dto.CarDto;
 import br.com.bhut.test.bhut.entity.Log;
+import br.com.bhut.test.bhut.entity.factory.LogBuilder;
 import br.com.bhut.test.bhut.http.ClientHttp;
 import br.com.bhut.test.bhut.repository.LogRepository;
 import br.com.bhut.test.bhut.utils.JsonParser;
 import br.com.bhut.test.bhut.vo.CarVO;
+import br.com.bhut.test.bhut.vo.factory.CarVOBuilder;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
@@ -35,17 +36,19 @@ public class CreateCarService {
         HttpResponse<String> response = clientHttp.post("http://api-test.bhut.com.br:3000/api/cars", body);
         JSONObject car = parser.parseObject(response.body());
 
-        CarVO carVO = new CarVO(
-                car.getString("_id"),
-                car.getString("title"),
-                car.getString("brand"),
-                car.getString("price"),
-                car.getInt("age"));
+        CarVO carVO = CarVOBuilder.builder()
+                .id(car.getString("_id"))
+                .title(car.getString("title"))
+                .brand(car.getString("brand"))
+                .price(car.getString("price"))
+                .age(car.getInt("age"))
+                .build();
 
         // Save log
-        Log log = new Log();
-        log.setCar_id(car.get("_id").toString());
-        log.setData_hora(LocalDateTime.now());
+        Log log = LogBuilder.builder()
+                .carId(car.get("_id").toString())
+                .dataHora(LocalDateTime.now())
+                .build();
 
         logRepository.save(log);
 
