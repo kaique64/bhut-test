@@ -6,10 +6,11 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Getter
 @Setter
-public class CarDto {
+public class CarDto implements Serializable {
 
     @NotBlank
     @Size(min = 2, message = "É necessário no minimo 2 caracteres")
