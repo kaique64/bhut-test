@@ -2,9 +2,10 @@ package br.com.bhut.test.bhut.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
+@Setter
 public class CarVO {
 
     private String _id;
